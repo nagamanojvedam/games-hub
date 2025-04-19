@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer components {
+  /* General Styles */
+  .switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3em;
+    height: 1.5em;
+  }
+
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  /* The slider (background) */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  /* The circle inside the slider */
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 0.85em;
+    width: 0.85em;
+    left: 0.2em;
+    bottom: 0.2em;
+    background-color: white;
+    border-radius: inherit;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  /* Light mode styles */
+  .slider {
+    border: 2px solid #ccc; /* Light border for light mode */
+    background-color: #f0f0f0; /* Light background color */
+  }
+
+  .switch input:checked + .slider {
+    box-shadow: 0 0 20px rgba(100, 149, 237, 0.6); /* Soft blue shadow for light mode */
+    border: 2px solid #6495ed; /* Lighter blue border when checked */
+    background-color: #add8e6; /* Light blue background when checked */
+  }
+
+  .switch input:checked + .slider:before {
+    transform: translateX(1.5em); /* Move the circle when checked */
+  }
+
+  /* Dark mode styles */
+  .dark .slider {
+    border: 2px solid #555; /* Darker border for dark mode */
+    background-color: #333; /* Darker background color */
+  }
+
+  .dark .switch input:checked + .slider {
+    box-shadow: 0 0 20px rgba(9, 117, 241, 0.8); /* Blue shadow for dark mode */
+    border: 2px solid #0974f1; /* Blue border when checked */
+    background-color: #0974f1; /* Blue background when checked */
+  }
+
+  .dark .switch input:checked + .slider:before {
+    transform: translateX(1.5em); /* Move the circle when checked */
+  }
+}
