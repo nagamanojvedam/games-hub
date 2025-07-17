@@ -10,7 +10,6 @@ import GamesSkeleton from "./GamesSkeleton";
 
 function Main() {
   const { platform, isLoading } = useGame();
-  console.log(isLoading);
 
   return (
     <main className="grow">

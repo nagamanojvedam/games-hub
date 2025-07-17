@@ -5,7 +5,6 @@ function GenreBar() {
   const { query, setQuery } = useGame();
   const { genres } = useGenres();
 
-  console.log(genres);
   return (
     <nav className="hidden lg:flex lg:flex-col lg:gap-4 lg:p-4">
       <h3 className="text-2xl font-bold">Genres</h3>

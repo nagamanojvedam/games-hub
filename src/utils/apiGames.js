@@ -10,7 +10,6 @@ export const getData = async (endPoint, query = {}) => {
       ...query,
     },
   });
-  console.log(response);
   const { results } = response.data;
   return results;
 };
